@@ -1,20 +1,8 @@
-require_relative '../environment.rb'
-require_relative "../lib/scrapber.rb"
+require_relative "../environment.rb"
+require_relative "../lib/scraper.rb"
 
 
 
-
-# url = "https://whc.unesco.org/en/statesparties/us"
-# html = open(url)
-# parsed_elements = Nokogiri::HTML(html)
-# unesco_cultural = parsed_elements.css("div.box li.cultural")
-
-
-# cultural_sites = unesco_cultural.css("li.cultural a").text
-# first_site = unesco_sites.css("li.cultural a").first
-# natural_site = unesco_sites.css("ul li.natural a").text
-# first_natural = unesco_sites.css("ul li.natural a").first
- 
 
  def cultural_scraper #KEEP THIS SCRAPER
     url = "https://whc.unesco.org/en/statesparties/us"
@@ -41,18 +29,10 @@ require_relative "../lib/scrapber.rb"
         cult_info = cultural_info.text
         puts "#{cult_info}"
 
-       
+
+
         end 
     end 
-
-    cultural_scraper
- 
-
-
-
-
-
-
 
 
  def natural_scraper #KEEP THIS SCRAPER
@@ -78,7 +58,7 @@ require_relative "../lib/scrapber.rb"
 
         natural_info = info_parsed_elements.css('#contentdes_en p')
         nat_info = natural_info.text
-        puts "#{natural_info}"
+        puts "#{nat_info}"
        
 
 
@@ -86,6 +66,7 @@ require_relative "../lib/scrapber.rb"
     end 
 end 
 
+cultural_scraper
 natural_scraper
 
 

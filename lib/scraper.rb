@@ -1,12 +1,13 @@
 
 class Scraper
 
-    def initialize
+    def initialize(name, site)
+        @base_url = "https://whc.unesco.org"
     end 
 
 
-    def cultural_scraper #KEEP THIS SCRAPER
-        url = "https://whc.unesco.org/en/statesparties/us"
+    def cultural_scraper 
+        url = @base_url + "/en/statesparties/us"
         html = open(url)
         parsed_elements = Nokogiri::HTML(html)
         unesco_cultural = parsed_elements.css("div.box li.cultural")
@@ -18,24 +19,34 @@ class Scraper
     
         cultural_sites.each_with_index do |cultural_site, index|
             name = cultural_site.text
-            site_url = "https://whc.unesco.org" + cultural_site.attr('href')
-            puts "#{index + 1}. #{name}"
-            puts "--------------------"
+            site_url = @base_url + cultural_site.attr('href')
+            # puts "#{index + 1}. #{name}"
+            # puts "--------------------"
             # puts "#{url}"
             # Site.new(name, url) 
         
-            info_html = open(site_url)
-            info_parsed_elements = Nokogiri::HTML(info_html)
+            # info_html = open(site_url)
+            # info_parsed_elements = Nokogiri::HTML(info_html)
     
-            cultural_info = info_parsed_elements.css('#contentdes_en p')
-            cult_info = cultural_info.text
-            puts "#{cultural_info}"
+            # cultural_info = info_parsed_elements.css('#contentdes_en p')
+            # cult_info = cultural_info.text
+            # # puts "#{cult_info}"
             end 
-        end 
+    end 
+
+    def second_cultural_scrape
+        info_html = open(site_url)
+        info_parsed_elements = Nokogiri::HTML(info_html)
+
+        cultural_info = info_parsed_elements.css('#contentdes_en p')
+        cult_info = cultural_info.text
+    end 
+
+
    
 
 
- def natural_scraper #KEEP THIS SCRAPER
+ def natural_scraper
     url = "https://whc.unesco.org/en/statesparties/us"
     html = open(url)
     parsed_elements = Nokogiri::HTML(html)
@@ -48,10 +59,10 @@ class Scraper
     natural_url = "https://whc.unesco.org/en/" + unesco_natural.css("li.natural a")[0].attributes['href'].value 
     natural_sites.each_with_index do |natural_site, index|
         name = natural_site.text
-        site_url = "https://whc.unesco.org" + natural_site.attr('href')
+        site_url = @base_url + natural_site.attr('href')
         # puts " #{index + 1}. #{name}"
         # puts "--------------------"
-
+    
         info_html = open(site_url)
         info_parsed_elements = Nokogiri::HTML(info_html)
 
@@ -60,8 +71,17 @@ class Scraper
         # puts "#{natural_info}"
        
         # puts "#{url}"
+
+        def second_natural_scrape
+            info_html = open(site_url)
+            info_parsed_elements = Nokogiri::HTML(info_html)
+    
+            natural_info = info_parsed_elements.css('#contentdes_en p')
+            nat_info = natural_info.text
+        end 
     end 
 end 
 
 
 end 
+

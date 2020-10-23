@@ -1,0 +1,7 @@
+class Sites
+
+    @@all = []
+
+
+
+end 
