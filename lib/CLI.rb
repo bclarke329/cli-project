@@ -11,21 +11,17 @@ class CLI
         if user_input == "1"
             puts "1. All Cultural Sites"
         #display Cultural sites 
-        # puts "which site would you like to know more about?"
+        puts "Which site would you like to know more about?"
          #have user choose one from the list by number
          #once chosen, bring up scrap based on cultural site.
-    end
-
-    #else
-    # user inputs N..
+        else
+            user_input == "2"
+            user_input = gets.chomp
         #display natural titles
-        # puts "which location would like you know to know more about"
+        puts "Which site would you like to know more about?"
         #have user chooose one from the list
-        #once chosen, brign up scrap based on location.
-    #end 
-
-    #
-    end 
+        #once chosen, bring up scrap based on chosen site.
+        end 
 
 
     end 
