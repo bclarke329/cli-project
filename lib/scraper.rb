@@ -15,14 +15,15 @@ class Scraper
         cultural_sites = unesco_cultural.css("li.cultural a")
         culture_url = "https://whc.unesco.org/en/" + cultural_sites.css('a')[0].attributes['href'].value
 
-        cultural_sites.each_with_index do |cultural_site, index|
+        cultural_sites.each do |cultural_site|
             site_name = cultural_site.text
             site_url = @base_url + cultural_site.attr('href')
+            sleep(1)
             #Make new instances of sites 
             # Site.new(site_name, url, category = "cultural")
             # binding.pry
     
-            # puts "#{index + 1}. #{site_name}"
+            # puts "#{index + 1}. #{site}"
             # puts "--------------------"
             # puts "#{url}"
             # Site.new(name, url) 
@@ -34,17 +35,19 @@ class Scraper
             # cult_info = cultural_info.text
             # # puts "#{cult_info}"
            
-    # end 
+        end 
 
-    # def second_cultural_scrape
+    def second_cultural_scrape(site_url)
         info_html = open(site_url)
         info_parsed_elements = Nokogiri::HTML(info_html)
 
         cultural_info = info_parsed_elements.css('#contentdes_en p')
+        #cultural_location 
         cult_info = cultural_info.text
-    #     binding.pry
-        end 
+        puts "#{cult_info}"
+        #cult_location 
     end 
+end 
 
 
    

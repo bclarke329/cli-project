@@ -15,23 +15,28 @@ class CLI
     user_input = gets.chomp
         if user_input == "1"
             puts "All Cultural Sites"
+            puts "Loading cultural sites.."
             @scraper.cultural_scraper
-            # puts "#{index + 1}. #{site_name}"
-            # puts "--------------------"
-        puts "Which site would you like to know more about?"
-         #have user choose one from the list by number
-         #once chosen, bring up scrap based on cultural site.
-        else
-            user_input == "2"
+            @site.print_all_cultural_names
+            binding.pry
+            sleep(1)
+          puts "Which site would you like to know more about?"
             user_input = gets.chomp
-            puts "2. All Natural Sites"
-        puts "Which site would you like to know more about?"
-        #have user chooose one from the list
-        #once chosen, bring up scrap based on chosen site.
-        end 
+            user_input = "#{index - 1}"
+            @scraper.second_cultural_scrape
+        #     else
+        #     user_input == "2"
+        #     user_input = gets.chomp
+        #     puts "2. All Natural Sites"
+        # puts "Which site would you like to know more about?"
+        # #have user chooose one from the list
+        # #once chosen, bring up scrap based on chosen site.
+        # end 
 
+        # def user_site_selection
+        # end 
 
+        end
     end 
-
 
 end 

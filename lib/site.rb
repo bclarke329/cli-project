@@ -15,10 +15,13 @@ class Site
         @@all
     end 
 
-    def self.print_site_name_with_index
-        puts ""
-    end  
-
+    def print_all_cultural_names
+        @site.each_with_index do |culture_site, index|
+            puts "#{index + 1}. #{culture_site}"
+        end 
+    end 
+     
+  
    
 
 
