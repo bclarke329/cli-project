@@ -29,7 +29,11 @@ class Site
     end 
 
     def self.print_site_info(input)
+        puts "#{Site.all[input - 1].site_name}"
+        puts "   "
         puts "#{Site.all[input - 1].info}"
-        puts " "         
+        puts "   "         
     end 
+
+    
 end 
