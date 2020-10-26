@@ -4,4 +4,4 @@
 - The app allows users to search by category, cultural or natural. 
 
 
--To open this app, simply fork and clone this file. Run "ruby bin/run.rb" to start the project. 
+-To open this app, simply fork and clone this file. Run "ruby bin/run.rb" to start the application.
