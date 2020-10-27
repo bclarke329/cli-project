@@ -5,3 +5,4 @@
 
 
 -To open this app, simply fork and clone this file. Run "ruby bin/run.rb" to start the application.
+-Type exit when you're ready to exit or run "ruby bin/run.rb to restart."
