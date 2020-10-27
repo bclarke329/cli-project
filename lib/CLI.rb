@@ -1,6 +1,7 @@
 class CLI
 
     def run
+        puts "  "
         greeting 
         menu
     end 
@@ -15,13 +16,13 @@ class CLI
         puts "Choose a category to explore more!"
     end 
 
-
     def menu 
         input = nil
         while input != "exit"
             puts "  "
-            puts "Please enter 1 or 2 to view sites."
-            puts "Enter exit to leave the program"
+            puts "Please enter 1 to view cultural sites." 
+            puts "Please enter 2 to view natural sites."
+            puts "Enter 'exit' to leave the program"
 
          input = gets.strip.downcase
 
@@ -36,12 +37,13 @@ class CLI
             end 
     end  
 
+
     def cultural_output 
         puts "  "
         puts "Sit tight! We'll load that faster than it'll take you to walk to the top of the Statue of Liberty."
         puts "Loading sites..."
-        puts "   "
         Scraper.cultural_scraper
+        puts "   "
         Site.print_sites
         puts "Which site would you like to know about about? Enter the number that matches your chosen location."
         input = gets.chomp.to_i
@@ -49,6 +51,7 @@ class CLI
         Site.print_site_info(input)
         sleep(2)
         puts "Would you like to view more sites?"
+        Site.clear
     end 
 
 
@@ -56,23 +59,25 @@ class CLI
     def natural_output
         puts "Good choice! We'll load your choices faster than it takes for a redwood tree to grow to its full size!"
         puts "Loading sites..."
-        puts " "
         Scraper.natural_scraper
+        puts " "  
         Site.print_sites
         puts "Which site would you like to know more about? Enter a number that matches your chosen location."
         input = gets.chomp.to_i
         puts "   "
         Site.print_site_info(input)
         sleep(2)
-        puts "Would you like to view more sites?"
+        puts "Would you like to view more sites?" 
+        Site.clear         
     end 
+
+   
 
     
     def goodbye
         puts "   "
         puts "Thank you for checking out our site!"
     end 
-
   
         
 

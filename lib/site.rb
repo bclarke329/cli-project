@@ -9,22 +9,18 @@ class Site
         @category = category
         @url = url
         @info = info 
-        @@all << self
-        # binding.pry
-      
+        @@all << self  
     end 
 
     def self.all
         @@all
     end 
 
-   def self.print_sites
-    # binding.pry
+    def self.print_sites
         @@all.each_with_index do |site, index|
-            sleep(1)
-            puts "#{index + 1}. #{site.site_name}"
-            puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-            # binding.pry
+        sleep(0.5)
+        puts "#{index + 1}. #{site.site_name}"
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         end 
     end 
 
@@ -34,6 +30,11 @@ class Site
         puts "#{Site.all[input - 1].info}"
         puts "   "         
     end 
+
+    def self.clear
+        @@all.clear
+    end 
+   
 
     
 end 
