@@ -12,7 +12,7 @@ class Scraper
         
         cultural_category = Category.new("Cultural")
     
-        cultural_sites.each  do |cultural_site, index|
+        cultural_sites.each  do |cultural_site|
             site_name = cultural_site.text
             site_url = "https://whc.unesco.org" + cultural_site.attr('href')
            
